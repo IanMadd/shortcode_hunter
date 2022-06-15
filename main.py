@@ -49,6 +49,32 @@ with open("shortcodes.json", "w", encoding="utf-8") as outfile:
     json.dump(outputDict, outfile, sort_keys=True, indent=4)
 
 # outputDict = {}
+# for shortcode in shortcode_files.list_of_shortcode_files:
+#     match = config.value_in_list(shortcode.repos, "chef-web-docs")
+#     if shortcode.total_count > 0 and match == True and "inspec" not in shortcode.repos and shortcode.source_repo == "chef-web-docs":
+#         outputDict[shortcode.fullname] = {
+#             'source repo': shortcode.source_repo,
+#             'total_count': shortcode.total_count,
+#             'repos': shortcode.repos,
+#         }
+
+# with open("shortcodes.json", "w", encoding="utf-8") as outfile:
+#     json.dump(outputDict, outfile, sort_keys=True, indent=4)
+
+outputDict = {}
+for shortcode in shortcode_files.list_of_shortcode_files:
+    match = config.value_in_list(shortcode.repos, "chef-web-docs")
+    if shortcode.total_count == 1 and match == True:
+        outputDict[shortcode.fullname] = {
+            'source repo': shortcode.source_repo,
+            'total_count': shortcode.total_count,
+            'repos': shortcode.repos,
+        }
+
+with open("shortcodes_one.json", "w", encoding="utf-8") as outfile:
+    json.dump(outputDict, outfile, sort_keys=True, indent=4)
+
+# outputDict = {}
 # count = 0
 # for shortcode in shortcode_files.list_of_shortcode_files:
 #     if (shortcode.source_repo == 'chef-web-docs' and

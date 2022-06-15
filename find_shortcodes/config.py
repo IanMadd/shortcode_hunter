@@ -178,6 +178,13 @@ def get_org_from_doc_path(doc_path):
         org = 'chef'
     return org
 
+def value_in_list(check_list, check):
+    """Return True if any value in list does not match string"""
+    val = False
+    for item in check_list:
+        if item != check:
+            val = True
+    return val
 
 for key, value in repos_dict.items():
     repo_object = create_repo_class_object(repos_dict[key])

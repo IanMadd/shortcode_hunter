@@ -13,8 +13,11 @@ html_shortcode_subdir_regex = r'{{< [\w|\-]+\/{1}([\w|\/]+) ?[\w|\=|\"|\_|\/]* >
 md_shortcode_regex = r'{{% ([\w|\-]+) ?[\w|\"|\=|\:]* %}}'
 md_shortcode_subdir_regex = r'{{% [\w|\-]+\/{1}([\w|\/|\-]+) ?[\w|\"|\=|\:]* %}}'
 readFile_shortcode_regex = r'{{ readFile \"layouts\/shortcodes\/(\w+\.md)\"'
+readFile_shortcode_subdir_regex = r'{{ readFile \"layouts\/shortcodes\/[\w|\-]+\/(\w+\.md)\"'
 other_readFile_shortcode_regex = r'{{< readFile_shortcode file=\"([\w]+\.md)\"'
 other_readFile_shortcode_file_path_regex = r'{{< readFile_shortcode file_path=\"layouts\/shortcodes\/([\w]+\.md)\"'
+real_readfile_shortcode_regex = r'{{< readfile file=\"layouts\/shortcodes\/(\w+\.md)\"'
+real_readfile_shortcode_subdir_regex = r'{{< readfile file=\"layouts\/shortcodes\/[\w|\-]+\/(\w+\.md)\"'
 reusable_text_versioned_regex = r'{{< reusable_text_versioned file=\"(\w+)\" >}}'
 yaml_file_shortcode_regex = r'shortcode: (\w+\.md)'
 template_shortcode_ref_regex = r"{{ \$shortcode := \"layouts\/shortcodes\/(\w+\.md)\""
@@ -23,9 +26,12 @@ template_shortcode_ref_regex = r"{{ \$shortcode := \"layouts\/shortcodes\/(\w+\.
 list_of_regexes = [
     template_shortcode_ref_regex,
     readFile_shortcode_regex,
+    readFile_shortcode_subdir_regex,
     other_readFile_shortcode_regex,
     other_readFile_shortcode_file_path_regex,
-    yaml_file_shortcode_regex
+    yaml_file_shortcode_regex,
+    real_readfile_shortcode_regex,
+    real_readfile_shortcode_subdir_regex
 ]
 
 list_of_md_regexes = [
